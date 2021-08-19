@@ -14,7 +14,11 @@ function Favourites(){
   
  
     useEffect(()=>{
+        if(localData===null){
+            setMovies([])
+        }else{
         setMovies(localData)
+    }
         // eslint-disable-next-line
     },[location])
   
