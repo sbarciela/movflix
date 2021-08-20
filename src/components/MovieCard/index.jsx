@@ -60,13 +60,13 @@ function MovieCard(movie){
 					<div className="card h-100">
 						<img src={imageUrl} className="card-img-top" alt={movie.original_title}/>
 						<div className="card-body">
-							<h5 className="card-title one-line-title">{movie.original_title}</h5>
+							<h5 className="card-title one-line-title" >{movie.original_title}</h5>
 							<p className="card-text">{movie.overview.substr(0, 80).trim()}...</p>
 							<div className="d-flex justify-content-between align-items-center">
                             	<Link to={`/detail/${movie.id}`} className="btn btn-primary">Ver detalle</Link>
 								{favourite?
-								<FontAwesomeIcon icon={solidHeart} size="lg" onClick={RemoveFavHandler} />:
-								<FontAwesomeIcon icon={emptyHeart} size="lg" onClick={addFavHandler} />}
+								<FontAwesomeIcon icon={solidHeart} size="lg" onClick={RemoveFavHandler} className="favIconD"/>:
+								<FontAwesomeIcon icon={emptyHeart} size="lg"  onClick={addFavHandler} className="favIcon"/>}
 							</div>
 							
 						</div>
