@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { Link , useHistory} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 function Navbar(){
 
 	let [ alert , setAlert ]= useState(false)
 
-	let history=useHistory()
+	let history=useHistory();
+
+	let closeHandler=()=>{
+		setAlert(false)
+	}
+
 
 	let submitHandler=(e)=>{
 		e.preventDefault();
@@ -46,8 +53,11 @@ return(
 			</div>
 		</nav>
 		{alert?
-		<div className="alert alert-danger text-center" id="alert">'Ingresa un mínimo de 3 letras'</div>
-		:""}
+		<div className="alert alert-danger d-flex justify-content-center align-items-center" id="alert">
+			<span className="me-3">'Ingresa un mínimo de 3 letras'</span>
+			<FontAwesomeIcon icon={faTimesCircle} size="md" onClick={closeHandler}/>
+		</div>
+		:""} 
 	</>
 )    
 }
